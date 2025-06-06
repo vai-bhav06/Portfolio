@@ -1,0 +1,485 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Apply to the body for a site-wide effect */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e); /* Dark gradient background */
+    color: #fff; /* Ensure text is readable */
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Add glowing particle effect */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 80px 80px; /* Space particles */
+    opacity: 0.1; /* Subtle glow */
+    pointer-events: none;
+  }
+  
+  /* Add animated circuits */
+  body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('circuit.jpg'); /* Use an SVG circuit design */
+    opacity: 0.05; /* Very light overlay */
+    animation: moveCircuits 20s linear infinite; /* Animate circuits */
+    pointer-events: none;
+  }
+  
+  /* Animation for circuits */
+  @keyframes moveCircuits {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-200px); /* Slight upward motion */
+    }
+  }
+  
+  
+/* Header Section Styles */
+header {
+    background: #fff;
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Container to group the title and the nav list together */
+  .nav-container {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Spread title and nav to opposite sides */
+    align-items: center; /* Vertically align title and links */
+    width: 100%;
+  }
+  
+  /* Navigation Styling */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* Space between navigation items */
+    margin: 0; /* Remove margin from ul */
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #130404;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #ffd700; /* Hover effect for links */
+  }
+  
+  /* Add a unique and bold font style for the navigation title */
+  .nav-title {
+    font-family: 'Roboto', sans-serif; /* Unique font */
+    font-weight: 700; /* Bold title */
+    font-size: 2.5rem; /* Adjust font size */
+    color: #090101; /* White text for contrast */
+    text-transform: uppercase; /* Uppercase letters */
+    letter-spacing: 3px; /* Add spacing between letters */
+    margin: 0; /* Remove default margin */
+    padding: 0.5rem 0; /* Add vertical padding */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effects */
+  }
+  
+  /* Hover effect for the navigation title */
+  .nav-title:hover {
+    transform: scale(1.1); /* Slightly enlarge the title */
+    color: #ffd700; /* Change color on hover */
+  }
+  
+  /* Make header responsive */
+  @media (max-width: 768px) {
+    .nav-container {
+      flex-direction: column; /* Stack the title and nav items vertically */
+      align-items: center; /* Center align both title and links */
+    }
+  
+    nav ul {
+      flex-direction: column; /* Stack nav links vertically on smaller screens */
+      gap: 1rem; /* Reduce gap between links */
+    }
+  }
+  
+  
+  /* Adding padding to each section to prevent overlap with the fixed header */
+section {
+    padding-top: 80px; /* Adjust this value to the height of your header */
+    scroll-margin-top: 80px; /* Ensures smooth scroll stops before the header */
+  }
+  
+
+ /* Hero Section Styles */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .hero-content {
+    flex: 1;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+  
+  .hero-content h1 span {
+    color: #ffd700;
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    line-height: 1.6;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .hero-buttons .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .hero-buttons .btn.primary {
+    background: #ffd700;
+    color: #333;
+  }
+  
+  .hero-buttons .btn.secondary {
+    background: transparent;
+    border: 2px solid #ffd700;
+    color: #ffd700;
+  }
+  
+  .hero-buttons .btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .hero-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .hero-image img {
+    width: 150px; /* Smaller profile picture */
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    animation: slideIn 2s ease-in-out;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .hero-container {
+      flex-direction: column; /* Stack content vertically on smaller screens */
+      text-align: center;
+    }
+  
+    .hero-content, .hero-image {
+      flex: none;
+      width: 100%;
+    }
+  
+    .hero-image img {
+      margin-top: 1rem;
+    }
+  }
+  
+  
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Projects Section Styles */
+#projects {
+    padding: 4rem 5%;
+    background: #f9f9f9;
+    text-align: center;
+  }
+  
+  #projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project-card {
+    background: #fde766;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .project-info {
+    padding: 1.5rem;
+    text-align: left;
+  }
+  
+  .project-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #6e8efb;
+  }
+  
+  .project-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-info .btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    text-decoration: none;
+    background: #6e8efb;
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .project-info .btn:hover {
+    background: #a777e3;
+  }
+  
+
+  
+  /* Skills Section */
+  #skills {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #a777e3, #6e8efb);
+    color: #fff;
+    text-align: center;
+  }
+  
+  #skills h2 {
+    margin-bottom: 2rem;
+  }
+  
+  .skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .skills-list li {
+    background: #fff;
+    color: #333;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .skills-list li:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  /* Contact Section */
+  /* Contact Section Styles */
+#contact {
+    padding: 4rem 5%;
+    background: #f9f9f9;
+    color: #333;
+    text-align: center;
+  }
+  
+  #contact h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* Contact Box Styles */
+  .contact-box {
+    background:#fde766;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .contact-box .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .contact-box label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .contact-box input, .contact-box textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .contact-box input:focus, .contact-box textarea:focus {
+    border-color: #6e8efb;
+    outline: none;
+  }
+  
+  .contact-box button {
+    padding: 1rem 2rem;
+    background: #6e8efb;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .contact-box button:hover {
+    background: #5a7ad7;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #contact {
+      padding: 3rem 2rem;
+    }
+  
+    .contact-box {
+      padding: 1.5rem;
+    }
+  
+    .contact-box input, .contact-box textarea {
+      font-size: 0.9rem;
+    }
+  
+    .contact-box button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+  
+  
+  /* Footer */
+  footer {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Global Title Styles */
+section h2 {
+    font-family: 'Poppins', sans-serif; /* Stylish modern font */
+    font-size: 2.5rem; /* Adjust size for prominence */
+    font-weight: 700; /* Bold for emphasis */
+    color: #333; /* Dark color for good contrast */
+    text-transform: uppercase; /* Capitalize all letters */
+    letter-spacing: 2px; /* Add spacing between letters */
+    text-align: center; /* Center align all titles */
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  /* Add a decorative line under titles */
+  section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #6e8efb; /* Match section's primary color */
+    margin: 1rem auto 0;
+    border-radius: 2px; /* Smooth corners */
+  }
+  
